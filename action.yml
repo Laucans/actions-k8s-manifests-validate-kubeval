@@ -26,6 +26,10 @@ inputs:
     description: "A comma-separated list of regular expressions specifying paths to ignore (kubeval --ignored-filename-patterns)" 
     default: ""
     required: false
+  ignored_logs_words:
+    description: "A comma-separated list of black listed substring which if find in result will remove line (use grep -v)" 
+    default: ""
+    required: false
   comment:
     description: "Send comment to pull requests"
     default: true
@@ -44,6 +48,7 @@ runs:
     - ${{ inputs.openshift }}
     - ${{ inputs.ignore_missing_schemas }}
     - ${{ inputs.ignored_filename_patterns }}
+    - ${{ inputs.ignored_logs_words }}
     - ${{ inputs.comment }}
     - ${{ inputs.token }}
 branding:
