@@ -22,6 +22,10 @@ inputs:
     description: "Whether or not to skip custom resources (kubeval --ignore-missing-schemas)" 
     default: true
     required: false
+  ignored_filename_patterns:
+    description: "A comma-separated list of regular expressions specifying paths to ignore (kubeval --ignored-filename-patterns)" 
+    default: ""
+    required: false
   comment:
     description: "Send comment to pull requests"
     default: true
@@ -39,6 +43,7 @@ runs:
     - ${{ inputs.strict }}
     - ${{ inputs.openshift }}
     - ${{ inputs.ignore_missing_schemas }}
+    - ${{ inputs.ignored_filename_patterns }}
     - ${{ inputs.comment }}
     - ${{ inputs.token }}
 branding:
